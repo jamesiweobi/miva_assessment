@@ -90,7 +90,7 @@ func CountKeywords(linesCh <-chan string, resultsCh chan<- map[string]int, keywo
 	resultsCh <- localCounts
 }
 
-func main() {
+func completeTaskOne() {
 	keywords := []string{"INFO", "ERROR", "DEBUG"}
 	
 	counts, err := ProcessLogFile("log.txt", keywords)
@@ -99,8 +99,14 @@ func main() {
 		return
 	}
 
-	fmt.Println("=== Log Processing Results ===")
 	for _, count := range counts {
 		fmt.Printf("%s: %d\n", count.Keyword, count.Count)
 	}
 }
+
+func main() {
+	fmt.Println("Starting Task One")
+	completeTaskOne()
+	fmt.Println("Completed Task One")
+}
+
